@@ -1,0 +1,11 @@
+<h2>League Summary</h2>
+<p>
+<%= render :partial => "summary_league_weeks.text.html",
+  :locals => { :team => team,
+               :weeks => season.weeks } %>
+</p>
+<p>
+<%= render :partial => "summary_league_winners.text.html",
+  :locals => { :team => team,
+               :winnings => winnings } %>
+</p>

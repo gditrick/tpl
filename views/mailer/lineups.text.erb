@@ -1,0 +1,56 @@
+Hi <%= @team.owner_first_name %>,
+
+<%= @week.description.possessive %> first games are fast approaching with a start time of
+<%= @week.first_game_start.strftime("%A, %b %d, at %1I:%M %p %Z") %>.  If you are going to
+play anyone in the first game(s) of the week, you must set those players in prior to the start
+time of that game.
+
+<% unless @season.quarters.nil? or @season.quarters.empty? %>
+
+  <%= render :partial => "lineups_quarter.text.plain",
+             :locals => { :team => @team,
+                          :week => @week,
+                          :previous_week => @previous_week,
+                          :prize_definition => @prize_definition } %>
+<% end %>
+
+<% unless @season.halves.nil? or @season.halves.empty? %>
+
+<%= render :partial => "lineups_half.text.plain",
+           :locals => { :team => @team,
+                        :week => @week,
+                        :previous_week => @previous_week,
+                        :prize_definition => @prize_definition } %>
+
+
+<% end %>
+
+
+<%= render :partial => "lineups_season.text.plain",
+           :locals => { :team => @team,
+                        :week => @week,
+                        :previous_week => @previous_week,
+                        :prize_definition => @prize_definition } %>
+
+
+Don't forget each week if you get highest points you will win <%= @prize_definition.prize(WeekHighestScorePrize).amount_to_s %>
+
+This also gives you a chance at the following prizes:
+
+<% unless @season.quarters.nil? or @season.quarters.empty? %>
+- Highest Total in a Quarter and win <%= @prize_definition.prize(QuarterHighestWeeklyScorePrize).amount_to_s %>
+
+<% end %>
+<% unless @season.halves.nil? or @season.halves.empty? %>
+- Highest in a Half and win <%= @prize_definition.prize(HalfHighestWeeklyScorePrize).amount_to_s %>
+
+<% end %>
+
+- Highest Weekly in the Season and win <%= @prize_definition.prize(SeasonHighestWeeklyScorePrize).amount_to_s %>
+
+
+Later,
+
+
+The Commish
+

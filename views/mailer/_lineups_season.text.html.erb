@@ -1,0 +1,44 @@
+<% if week.is_start_of_season? %>
+<h4>
+This is the start of <%=h week.season.description %> and you can try for:
+</h4>
+<p>
+<ul>
+<%= render :partial => "prize.text.html", :collection => prizes %>
+</ul>
+</p>
+<h5>
+These will increase if we get more participants!
+</h5>
+<% else %>
+  <% unless previous_week.nil? %>
+    <h3>
+    Your status in <%=h week.season.description %>:
+    </h3>
+    <% if previous_week.season_scores.find_by_team(team).previous_score.nil? %>
+      <p>
+      Your team is in first place for <%=h week.season.description %>.  You are <%=h previous_week.season_scores.find_by_team(team).next_score.points_behind_pre %> ahead of <%=h previous_week.season_scores.find_by_team(team).next_score.team.name_and_owner %>.<br/>
+      </p>
+      <h4>
+      Stay in first, don't forget to set a lineup!
+      </h4>
+    <% elsif previous_week.season_scores.find_by_team(team).next_score.nil? %>
+      <p>
+      Ouch, your team is in last place.  You are <%=h previous_week.season_scores.find_by_team(team).points_behind_pre %> behind <%=h previous_week.season_scores.find_by_team(team).previous_score.team.name_and_owner %>.
+      </p>
+      <h4>
+      Get out of the cellar and catch <%=h previous_week.season_scores.find_by_team(team).previous_score.team.name_and_owner %>.  Don't forget to set a lineup!
+      </h4>
+    <% else %>
+      <p>
+      You are in <%=h (previous_week.season_scores.index(previous_week.season_scores.find_by_team(team)) + 1).en.ordinal %> place.<br/>
+      You are <%=h previous_week.season_scores.find_by_team(team).points_behind_1st %> behind first.<br/>
+      Your team is <%=h previous_week.season_scores.find_by_team(team).points_behind_pre %> behind <%=h previous_week.season_scores.find_by_team(team).previous_score.team.name_and_owner %>.<br/>
+      Your team is also <%=h previous_week.season_scores.find_by_team(team).next_score.points_behind_pre %> ahead of <%=h previous_week.season_scores.find_by_team(team).next_score.team.name_and_owner %>.<br/>
+      </p>
+      <h4>
+      You are better than those 2!  Don't forget to set a lineup!
+      </h4>
+    <% end %>
+  <% end %>
+<% end %>

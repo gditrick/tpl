@@ -1,0 +1,383 @@
+---
+seasons: !seq:Seasons
+  - &season001 !ruby/object:Season 
+    description: 2019 Season
+    id: 1
+    playoffs: false
+    pos: 1
+    halves: &halves001 !seq:Halves
+      - &half001 !ruby/object:Half 
+        description: First Half
+        id: 1
+        pos: 1
+        quarters: &quarters001 !seq:Quarters 
+          - &quarter001 !ruby/object:Quarter 
+            description: First Quarter
+            half: *half001
+            id: 1
+            pos: 1
+            scores:
+            season: *season001
+            weeks: &weeks001 !seq:Weeks 
+              - &week001 !ruby/object:Week 
+                description: Week 1
+                last_game_start: 2019-09-09 22:30:00 -0400
+                half: *half001
+                half_scores:
+                id: 1
+                lineups_sent_at: 
+                next_week: &week002 !ruby/object:Week 
+                  description: Week 2
+                  last_game_start: 2019-09-16 20:15:00 -0400
+                  half: *half001
+                  half_scores:
+                  id: 2
+                  lineups_sent_at: 
+                  next_week: &week003 !ruby/object:Week 
+                    description: Week 3
+                    last_game_start: 2019-09-23 20:15:00 -0400
+                    half: *half001
+                    half_scores:
+                    id: 3
+                    lineups_sent_at: 
+                    next_week: &week004 !ruby/object:Week 
+                      description: Week 4
+                      last_game_start: 2019-09-30 20:15:00 -0400
+                      half: *half001
+                      half_scores:
+                      id: 4
+                      lineups_sent_at: 
+                      next_week: &week005 !ruby/object:Week 
+                        description: Week 5
+                        last_game_start: 2019-10-07 20:15:00 -0400
+                        half: *half001
+                        half_scores:
+                        id: 5
+                        lineups_sent_at: 
+                        next_week: &week006 !ruby/object:Week 
+                          description: Week 6
+                          last_game_start: 2019-10-14 20:15:00 -0400
+                          half: *half001
+                          half_scores:
+                          id: 6
+                          lineups_sent_at: 
+                          next_week: &week007 !ruby/object:Week 
+                            description: Week 7
+                            last_game_start: 2019-10-21 20:15:00 -0400
+                            half: *half001
+                            half_scores:
+                            id: 7
+                            lineups_sent_at: 
+                            next_week: &week008 !ruby/object:Week 
+                              description: Week 8
+                              last_game_start: 2019-10-28 20:15:00 -0400
+                              half: *half001
+                              half_scores:
+                              id: 8
+                              lineups_sent_at: 
+                              next_week: &week009 !ruby/object:Week 
+                                description: Week 9
+                                last_game_start: 2019-11-04 20:15:00 -0500
+                                half: *half001
+                                half_scores:
+                                id: 9
+                                lineups_sent_at:
+                                next_week: &week010 !ruby/object:Week
+                                  description: Week 10
+                                  last_game_start: 2019-11-11 20:15:00 -0500
+                                  half: &half002 !ruby/object:Half
+                                    description: Second Half
+                                    id: 2
+                                    pos: 2
+                                    quarters: &quarters002 !seq:Quarters
+                                      - &quarter003 !ruby/object:Quarter
+                                        description: Third Quarter
+                                        half: *half002
+                                        id: 3
+                                        pos: 3
+                                        scores:
+                                        season: *season001
+                                        weeks: &weeks002 !seq:Weeks
+                                          - *week010
+                                          - &week011 !ruby/object:Week
+                                            description: Week 11
+                                            last_game_start: 2019-11-18 20:15:00 -0500
+                                            half: *half002
+                                            half_scores:
+                                            id: 11
+                                            lineups_sent_at:
+                                            next_week: &week012 !ruby/object:Week
+                                              description: Week 12
+                                              last_game_start: 2019-11-25 20:15:00 -0500
+                                              half: *half002
+                                              half_scores:
+                                              id: 12
+                                              lineups_sent_at:
+                                              next_week: &week013 !ruby/object:Week
+                                                description: Week 13
+                                                last_game_start: 2019-12-02 20:15:00 -0500
+                                                half: *half002
+                                                half_scores:
+                                                id: 13
+                                                lineups_sent_at:
+                                                next_week: &week014 !ruby/object:Week
+                                                  description: Week 14
+                                                  last_game_start: 2019-12-09 20:15:00 -0500
+                                                  half: *half002
+                                                  half_scores:
+                                                  id: 14
+                                                  lineups_sent_at:
+                                                  next_week: &week015 !ruby/object:Week
+                                                    description: Week 15
+                                                    last_game_start: 2019-12-16 20:15:00 -0500
+                                                    half: *half002
+                                                    half_scores:
+                                                    id: 15
+                                                    lineups_sent_at:
+                                                    next_week: &week016 !ruby/object:Week
+                                                      description: Week 16
+                                                      last_game_start: 2019-12-23 20:15:00 -0500
+                                                      half: *half002
+                                                      half_scores:
+                                                      id: 16
+                                                      lineups_sent_at:
+                                                      next_week: &week017 !ruby/object:Week
+                                                        description: Week 17
+                                                        last_game_start: 2019-12-29 16:25:00 -0500
+                                                        half: *half002
+                                                        half_scores:
+                                                        id: 17
+                                                        lineups_sent_at:
+                                                        pos: 17
+                                                        previous_week: *week016
+                                                        quarter: &quarter004 !ruby/object:Quarter
+                                                          description: Fourth Quarter
+                                                          half: *half002
+                                                          id: 4
+                                                          pos: 4
+                                                          scores:
+                                                          season: *season001
+                                                          weeks: &weeks003 !seq:Weeks
+                                                            - *week014
+                                                            - *week015
+                                                            - *week016
+                                                            - *week017
+                                                        quarter_scores:
+                                                        results_sent_at:
+                                                        scores:
+                                                        season: *season001
+                                                        season_scores:
+                                                        first_game_start: 2019-12-29 13:00:00 -0500
+                                                      pos: 16
+                                                      previous_week: *week015
+                                                      quarter: *quarter004
+                                                      quarter_scores:
+                                                      results_sent_at:
+                                                      scores:
+                                                      season: *season001
+                                                      season_scores:
+                                                      first_game_start: 2019-12-22 13:00:00 -0500
+                                                    pos: 15
+                                                    previous_week: *week014
+                                                    quarter: *quarter004
+                                                    quarter_scores:
+                                                    results_sent_at:
+                                                    scores:
+                                                    season: *season001
+                                                    season_scores:
+                                                    first_game_start: 2019-12-12 20:20:00 -0500
+                                                  pos: 14
+                                                  previous_week: *week013
+                                                  quarter: *quarter004
+                                                  quarter_scores:
+                                                  results_sent_at:
+                                                  scores:
+                                                  season: *season001
+                                                  season_scores:
+                                                  first_game_start: 2019-12-05 20:20:00 -0500
+                                                pos: 13
+                                                previous_week: *week012
+                                                quarter: *quarter003
+                                                quarter_scores:
+                                                results_sent_at:
+                                                scores:
+                                                season: *season001
+                                                season_scores:
+                                                first_game_start: 2019-11-28 12:30:00 -0500
+                                              pos: 12
+                                              previous_week: *week011
+                                              quarter: *quarter003
+                                              quarter_scores:
+                                              results_sent_at:
+                                              scores:
+                                              season: *season001
+                                              season_scores:
+                                              first_game_start: 2019-11-21 20:20:00 -0500
+                                            pos: 11
+                                            previous_week: *week010
+                                            quarter: *quarter003
+                                            quarter_scores:
+                                            results_sent_at:
+                                            scores:
+                                            season: *season001
+                                            season_scores:
+                                            first_game_start: 2019-11-14 20:20:00 -0500
+                                          - *week012
+                                          - *week013
+                                      - *quarter004
+                                    pos: 2
+                                    scores:
+                                    season: *season001
+                                    weeks: &weeks004 !seq:Weeks
+                                      - *week010
+                                      - *week011
+                                      - *week012
+                                      - *week013
+                                      - *week014
+                                      - *week015
+                                      - *week016
+                                      - *week017
+                                  half_scores:
+                                  pos: 10
+                                  previous_week: *week009
+                                  quarter: *quarter003
+                                  quarter_scores:
+                                  results_sent_at:
+                                  scores:
+                                  season: *season001
+                                  season_scores:
+                                  first_game_start: 2019-11-07 20:20:00 -0500
+                                pos: 9
+                                previous_week: *week008
+                                quarter: &quarter002 !ruby/object:Quarter
+                                  description: Second Quarter
+                                  half: *half001
+                                  id: 2
+                                  pos: 2
+                                  scores:
+                                  season: *season001
+                                  weeks: &weeks005 !seq:Weeks
+                                    - *week006
+                                    - *week007
+                                    - *week008
+                                    - *week009
+                                quarter_scores:
+                                results_sent_at:
+                                scores:
+                                season: *season001
+                                season_scores:
+                                first_game_start: 2019-10-31 20:20:00 -0500
+                              pos: 8
+                              previous_week: *week007
+                              quarter: *quarter002
+                              quarter_scores:
+                              results_sent_at:
+                              scores:
+                              season: *season001
+                              season_scores:
+                              first_game_start: 2019-10-24 20:20:00 -0400
+                            pos: 7
+                            previous_week: *week006
+                            quarter: *quarter002
+                            quarter_scores:
+                            results_sent_at: 
+                            scores:
+                            season: *season001
+                            season_scores:
+                            first_game_start: 2019-10-17 20:20:00 -0400
+                          pos: 6
+                          previous_week: *week005
+                          quarter: *quarter002
+                          quarter_scores:
+                          results_sent_at: 
+                          scores:
+                          season: *season001
+                          season_scores:
+                          first_game_start: 2019-10-10 20:20:00 -0400
+                        pos: 5
+                        previous_week: *week004
+                        quarter: *quarter001
+                        quarter_scores:
+                        results_sent_at: 
+                        scores:
+                        season: *season001
+                        season_scores:
+                        first_game_start: 2019-10-03 20:20:00 -0400
+                      pos: 4
+                      previous_week: *week003
+                      quarter: *quarter001
+                      quarter_scores:
+                      results_sent_at: 
+                      scores:
+                      season: *season001
+                      season_scores:
+                      first_game_start: 2019-09-26 20:20:00 -0400
+                    pos: 3
+                    previous_week: *week002
+                    quarter: *quarter001
+                    quarter_scores:
+                    results_sent_at: 
+                    scores:
+                    season: *season001
+                    season_scores:
+                    first_game_start: 2019-09-19 20:20:00 -0400
+                  pos: 2
+                  previous_week: *week001
+                  quarter: *quarter001
+                  quarter_scores:
+                  results_sent_at: 
+                  scores:
+                  season: *season001
+                  season_scores:
+                  first_game_start: 2019-09-12 20:20:00 -0400
+                pos: 1
+                previous_week: 
+                quarter: *quarter001
+                quarter_scores:
+                results_sent_at: 
+                scores:
+                season: *season001
+                season_scores:
+                first_game_start: 2019-09-05 20:20:00 -0400
+              - *week002
+              - *week003
+              - *week004
+              - *week005
+          - *quarter002
+        scores:
+        season: *season001
+        weeks: &weeks006 !seq:Weeks 
+          - *week001
+          - *week002
+          - *week003
+          - *week004
+          - *week005
+          - *week006
+          - *week007
+          - *week008
+          - *week009
+      - *half002
+    quarters: &quarters003 !seq:Quarters
+      - *quarter001
+      - *quarter002
+      - *quarter003
+      - *quarter004
+    scores:
+    weeks: &weeks007 !seq:Weeks 
+      - *week001
+      - *week002
+      - *week003
+      - *week004
+      - *week005
+      - *week006
+      - *week007
+      - *week008
+      - *week009
+      - *week010
+      - *week011
+      - *week012
+      - *week013
+      - *week014
+      - *week015
+      - *week016
+      - *week017

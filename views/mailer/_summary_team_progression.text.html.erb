@@ -1,0 +1,23 @@
+<table style="<%= table_grouping %>" rules="groups" >
+<caption style="<%= caption_default %>">Weekly Progression</caption>
+<thead style="<%= thead_grouping %>">
+<tr>
+  <th style="<%= th_grouping %>" rowspan="2">Week</th>
+  <th style="<%= th_grouping %>" rowspan="2">Score</th>
+  <th style="<%= th_grouping %>" colspan="4">Progression</th>
+  <th style="<%= th_grouping %>" rowspan="2">Average</th>
+  <th style="<%= th_grouping %>" rowspan="2">Highest</th>
+  <th style="<%= th_grouping %>" rowspan="2">Lowest</th>
+</tr>
+<tr>
+  <th style="<%= th_grouping %>">Week</th>
+  <th style="<%= th_grouping %>">Quarter</th>
+  <th style="<%= th_grouping %>">Half</th>
+  <th style="<%= th_grouping %>">Season</th>
+</tr>
+</thead>
+<%= render :partial => "summary_team_progression_week.text.html",
+  :collection => season.weeks,
+  :as => :week,
+  :locals => { :team => team } %>
+</table>

@@ -1,0 +1,58 @@
+--- 
+teams: !seq:Teams 
+  - !ruby/object:Team 
+    email: gditrick@fuse.net;gditrick@appriss.com
+    id: 1
+    name: GregD-1
+    owner: Greg Ditrick
+    winnings_count: 0
+    winnings_amount: 0.0
+  - !ruby/object:Team 
+    email: tom.whalen1@fuse.net
+    id: 2
+    name: Duff Beer
+    owner: Duffman
+    winnings_count: 0
+    winnings_amount: 0.0
+  - !ruby/object:Team 
+    email: Eric_stevens76@hotmail.com
+    id: 3
+    name: Flying tigers
+    owner: Eric Stevens
+    winnings_count: 0
+    winnings_amount: 0.0
+  - !ruby/object:Team 
+    email: mmonsonm@gmail.com
+    id: 4
+    name: Monson
+    owner: Mike Monson
+    winnings_count: 0
+    winnings_amount: 0.0
+  - !ruby/object:Team 
+    email: Meby29@gmail.com
+    id: 5
+    name: Eby
+    owner: Mike Eby
+    winnings_count: 0
+    winnings_amount: 0.0
+  - !ruby/object:Team 
+    email: nditrick@fuse.net
+    id: 6
+    name: Neal's Nockers
+    owner: Nancy Ditrick
+    winnings_amount: 0.0
+    winnings_count: 0
+  - !ruby/object:Team 
+    email: nditrick@fuse.net
+    id: 7
+    name: GunnarD
+    owner: Gunnar Ditrick
+    winnings_amount: 0.0
+    winnings_count: 0
+  - !ruby/object:Team 
+    email: nditrick@fuse.net
+    id: 8
+    name: VaughnD
+    owner: Vaughn Ditrick
+    winnings_amount: 0.0
+    winnings_count: 0

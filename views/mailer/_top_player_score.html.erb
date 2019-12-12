@@ -1,0 +1,13 @@
+<% if top_player_score_counter % 2 == 0 %>
+  <% tr_style = tr_even %>
+  <% td_style = td_even %>
+<% else %>
+  <% tr_style = tr_odd %>
+  <% td_style = td_odd %>
+<% end %>
+<tr style="<%= tr_default + tr_style %>">
+  <td style="<%= td_default + td_style %>"><%= top_player_score.position_abbrev %></td>
+  <td style="<%= td_default + td_style %>"><%= top_player_score.team_abbrev %></td>
+  <td style="<%= td_default + td_style %>"><%= top_player_score.full_name %></td>
+  <td style="<%= td_default + td_style %>"><%= top_player_score.total.to_f.round(2) %></td>
+</tr>

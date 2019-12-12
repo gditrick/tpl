@@ -1,0 +1,2 @@
+class QuarterScores < AbstractScores
+end

@@ -1,0 +1,31 @@
+<p>
+Congrats <%= @winning.team.owner_first_name %>!
+</p>
+<h2>
+<% if @winning.team.owner.eql?(@winning.team.name) %>
+Your team won <%= @winning.prize.class.name.titleize.split.slice(1..-2).join(' ') %> for <%= @winning.period.description %> with a score of <%= sprintf("%1.2f", @winning.score.total) %>.
+<% else %>
+Your team, <%= @winning.team.name %>, won <%= @winning.prize.class.name.titleize.split.slice(1..-2).join(' ') %> for <%= @winning.period.description %> with a score of <%= sprintf("%1.2f", @winning.score.total) %>.
+<% end %>
+</h2>
+<h4>
+The prize for that was <%= @winning.prize.amount_to_s + "!" %>
+</h4>
+<% if @winning.prize.is_money? %>
+<p>
+<%= @winning.prize.amount_to_s %> will be applied to your account on the web site.  You should
+see an award transaction in your transaction listing.  This can be found by logging into your
+team.  Then click on 'Trans' tab on your Team Panel on the left side frame.  Also, you can go
+to the Accounting page to see your account information where the <%= @winning.prize.amount_to_s %> will
+have been applied to your account.  The Account Page can be found off the 'League' tab on the main page.
+</p>
+<% end %>
+<p>
+Again, congrats and thanks for playing!
+</p>
+<p>
+Later,
+</p>
+<p>
+The Commish
+</p>

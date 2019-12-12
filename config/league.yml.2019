@@ -1,0 +1,369 @@
+--- 
+league: !ruby/object:League 
+  url: https://fantasyleaguemanager.com/football/goroute/index.php
+  cost: 0.00
+  fee: 10.00
+  prize_definitions: !seq:PrizeDefinitions 
+    - !ruby/object:PrizeDefinition 
+      team_range: !ruby/range 4..5 
+      prizes: !seq:Prizes 
+        - !ruby/object:WeekHighestScorePrize 
+          description: Winner 
+          amount: 1.00 
+          repeat: 17
+          period_type: Week
+          offset: 0
+          next_prize:
+        - !ruby/object:QuarterHighestScorePrize 
+          description: Winner 
+          amount: Prizes.pride_message 
+          repeat: 4
+          period_type: Quarter
+          offset: 0
+          next_prize:
+        - !ruby/object:QuarterHighestWeeklyScorePrize 
+          description: Winner 
+          amount: Prizes.pride_message 
+          repeat: 4
+          period_type: Quarter
+          offset: 0
+          next_prize:
+        - !ruby/object:HalfHighestScorePrize 
+          description: Winner 
+          amount: Prizes.pride_message 
+          repeat: 2
+          period_type: Half
+          offset: 0
+          next_prize:
+        - !ruby/object:HalfHighestWeeklyScorePrize 
+          description: Winner 
+          amount: Prizes.pride_message 
+          repeat: 2
+          period_type: Half
+          offset: 0
+          next_prize:
+        - !ruby/object:SeasonHighestScorePrize 
+          description: Winner 
+          amount: League.pot 
+          repeat: 1
+          period_type: Season
+          offset: 0
+          next_prize:
+        - !ruby/object:SeasonHighestWeeklyScorePrize 
+          description: Winner 
+          amount: 3.00 
+          repeat: 1
+          period_type: Season
+          offset: 0
+          next_prize:
+    - !ruby/object:PrizeDefinition 
+      team_range: !ruby/range 6..8 
+      prizes: !seq:Prizes 
+        - !ruby/object:WeekHighestScorePrize 
+          description: Winner 
+          amount: 2.00 
+          repeat: 17
+          period_type: Week
+          offset: 0
+          next_prize:
+        - !ruby/object:QuarterHighestScorePrize 
+          description: Winner 
+          amount: Prizes.pride_message 
+          repeat: 4
+          period_type: Quarter
+          offset: 0
+          next_prize:
+        - !ruby/object:QuarterHighestWeeklyScorePrize 
+          description: Winner 
+          amount: Prizes.pride_message 
+          repeat: 4
+          period_type: Quarter
+          offset: 0
+          next_prize:
+        - !ruby/object:HalfHighestScorePrize 
+          description: Winner 
+          amount: 11.00
+          repeat: 2
+          period_type: Half
+          offset: 0
+          next_prize:
+        - !ruby/object:HalfHighestWeeklyScorePrize 
+          description: Winner 
+          amount: Prizes.pride_message
+          repeat: 2
+          period_type: Half
+          offset: 0
+          next_prize:
+        - !ruby/object:SeasonHighestScorePrize 
+          description: Winner 
+          amount: League.pot 
+          repeat: 1
+          period_type: Season
+          offset: 0
+          next_prize:
+        - !ruby/object:SeasonHighestWeeklyScorePrize 
+          description: Winner 
+          amount: Prizes.pride_message
+          repeat: 1
+          period_type: Season
+          offset: 0
+          next_prize:
+    - !ruby/object:PrizeDefinition 
+      team_range: !ruby/range 9..13 
+      prizes: !seq:Prizes 
+        - !ruby/object:WeekHighestScorePrize 
+          description: Winner 
+          amount: 2.00 
+          repeat: 17
+          period_type: Week
+          offset: 0
+          next_prize:
+        - !ruby/object:QuarterHighestScorePrize 
+          description: Winner 
+          amount: Prizes.pride_message 
+          repeat: 4
+          period_type: Quarter
+          offset: 0
+          next_prize:
+        - !ruby/object:QuarterHighestWeeklyScorePrize 
+          description: Winner 
+          amount: Prizes.pride_message 
+          repeat: 4
+          period_type: Quarter
+          offset: 0
+          next_prize:
+        - !ruby/object:HalfHighestScorePrize 
+          description: Winner 
+          amount: League.pot / 4 
+          repeat: 2
+          period_type: Half
+          offset: 0
+          next_prize:
+        - !ruby/object:HalfHighestWeeklyScorePrize 
+          description: Winner 
+          amount: 5.00 
+          repeat: 2
+          period_type: Half
+          offset: 0
+          next_prize:
+        - !ruby/object:SeasonHighestScorePrize 
+          description: Winner 
+          amount: League.pot / 2 
+          repeat: 1
+          period_type: Season
+          offset: 0
+          next_prize:
+        - !ruby/object:SeasonHighestWeeklyScorePrize 
+          description: Winner 
+          amount: 6.00 
+          repeat: 1
+          period_type: Season
+          offset: 0
+          next_prize:
+    - !ruby/object:PrizeDefinition 
+      team_range: !ruby/range 14..21 
+      prizes: !seq:Prizes 
+        - !ruby/object:WeekHighestScorePrize 
+          description: Winner 
+          amount: 5.00 
+          repeat: 17
+          period_type: Week
+          offset: 0
+          next_prize:
+        - !ruby/object:QuarterHighestScorePrize 
+          description: Winner 
+          amount: Prizes.pride_message 
+          repeat: 4
+          period_type: Quarter
+          offset: 0
+          next_prize:
+        - !ruby/object:QuarterHighestWeeklyScorePrize 
+          description: Winner 
+          amount: Prizes.pride_message 
+          repeat: 4
+          period_type: Quarter
+          offset: 0
+          next_prize:
+        - !ruby/object:HalfHighestScorePrize 
+          description: Winner 
+          amount: League.pot / 4 
+          repeat: 2
+          period_type: Half
+          offset: 0
+          next_prize:
+        - !ruby/object:HalfHighestWeeklyScorePrize 
+          description: Winner 
+          amount: 10.00 
+          repeat: 2
+          period_type: Half
+          offset: 0
+          next_prize:
+        - !ruby/object:SeasonHighestScorePrize 
+          description: Winner 
+          amount: League.pot / 2 
+          repeat: 1
+          period_type: Season
+          offset: 0
+          next_prize:
+        - !ruby/object:SeasonHighestWeeklyScorePrize 
+          description: Winner 
+          amount: 15.00 
+          repeat: 1
+          period_type: Season
+          offset: 0
+          next_prize:
+    - !ruby/object:PrizeDefinition 
+      team_range: !ruby/range 22..27 
+      prizes: !seq:Prizes 
+        - !ruby/object:WeekHighestScorePrize 
+          description: Winner 
+          amount: 5.00 
+          repeat: 17
+          period_type: Week
+          offset: 0
+          next_prize:
+        - !ruby/object:QuarterHighestScorePrize 
+          description: Winner 
+          amount: League.pot / 16 
+          repeat: 4
+          period_type: Quarter
+          offset: 0
+          next_prize:
+        - !ruby/object:QuarterHighestWeeklyScorePrize 
+          description: Winner 
+          amount: 5.00 
+          repeat: 4
+          period_type: Quarter
+          offset: 0
+          next_prize:
+        - !ruby/object:HalfHighestScorePrize 
+          description: Winner 
+          amount: League.pot / 8 
+          repeat: 2
+          period_type: Half
+          offset: 0
+          next_prize:
+        - !ruby/object:HalfHighestWeeklyScorePrize 
+          description: Winner 
+          amount: 10.00 
+          repeat: 2
+          period_type: Half
+          offset: 0
+          next_prize:
+        - !ruby/object:SeasonHighestScorePrize 
+          description: Winner 
+          amount: League.pot / 2 
+          repeat: 1
+          period_type: Season
+          offset: 0
+          next_prize:
+        - !ruby/object:SeasonHighestWeeklyScorePrize 
+          description: Winner 
+          amount: 25.00 
+          repeat: 1
+          period_type: Season
+          offset: 0
+          next_prize:
+    - !ruby/object:PrizeDefinition 
+      team_range: !ruby/range 28..32 
+      prizes: !seq:Prizes 
+        - !ruby/object:WeekHighestScorePrize 
+          description: Winner 
+          amount: 5.00 
+          repeat: 17
+          period_type: Week
+          offset: 0
+          next_prize:
+        - !ruby/object:QuarterHighestScorePrize 
+          description: Winner 
+          amount: League.pot / 16 
+          repeat: 4
+          period_type: Quarter
+          offset: 0
+          next_prize:
+        - !ruby/object:QuarterHighestWeeklyScorePrize 
+          description: Winner 
+          amount: 10.00 
+          repeat: 4
+          period_type: Quarter
+          offset: 0
+          next_prize:
+        - !ruby/object:HalfHighestScorePrize 
+          description: Winner 
+          amount: League.pot / 8 
+          repeat: 2
+          period_type: Half
+          offset: 0
+          next_prize:
+        - !ruby/object:HalfHighestWeeklyScorePrize 
+          description: Winner 
+          amount: 15.00 
+          repeat: 2
+          period_type: Half
+          offset: 0
+          next_prize:
+        - !ruby/object:SeasonHighestScorePrize 
+          description: Winner 
+          amount: League.pot / 2 
+          repeat: 1
+          period_type: Season
+          offset: 0
+          next_prize:
+        - !ruby/object:SeasonHighestWeeklyScorePrize 
+          description: Winner 
+          amount: 35.00 
+          repeat: 1
+          period_type: Season
+          offset: 0
+          next_prize:
+    - !ruby/object:PrizeDefinition 
+      team_range: !ruby/range 33..50 
+      prizes: !seq:Prizes 
+        - !ruby/object:WeekHighestScorePrize 
+          description: Winner 
+          amount: 10.00 
+          repeat: 17
+          period_type: Week
+          offset: 0
+          next_prize:
+        - !ruby/object:QuarterHighestScorePrize 
+          description: Winner 
+          amount: League.pot / 16 
+          repeat: 4
+          period_type: Quarter
+          offset: 0
+          next_prize:
+        - !ruby/object:QuarterHighestWeeklyScorePrize 
+          description: Winner 
+          amount: 10.00 
+          repeat: 4
+          period_type: Quarter
+          offset: 0
+        - !ruby/object:HalfHighestScorePrize 
+          description: Winner 
+          amount: League.pot / 8 
+          repeat: 2
+          period_type: Half
+          offset: 0
+          next_prize:
+        - !ruby/object:HalfHighestWeeklyScorePrize 
+          description: Winner 
+          amount: 20.00 
+          repeat: 2
+          period_type: Half
+          offset: 0
+          next_prize:
+        - !ruby/object:SeasonHighestScorePrize 
+          description: Winner 
+          amount: League.pot / 2 
+          repeat: 1
+          period_type: Season
+          offset: 0
+          next_prize:
+        - !ruby/object:SeasonHighestWeeklyScorePrize 
+          description: Winner 
+          amount: 40.00 
+          repeat: 1
+          period_type: Season
+          offset: 0
+          next_prize:

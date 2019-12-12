@@ -1,0 +1,24 @@
+<% unless week.scores.nil? or week.scores.empty? %>
+  <% if summary_league_week_counter % 2 == 0 %>
+    <% tr_style = tr_even %>
+    <% td_style = td_even %>
+  <% else %>
+    <% tr_style = tr_odd %>
+    <% td_style = td_odd %>
+  <% end %>
+    <tr style="<%= tr_large + tr_style %>">
+      <td style="<%= td_large + td_ordinal %>" rowspan="5"><%=h week.pos %></td>
+    </tr>
+    <tr style="<%= tr_large + tr_style %>">
+      <%= league_week_col_detail_html(week, team, week.scores, td_style) %>
+    </tr>
+    <tr style="<%= tr_large + tr_style %>">
+      <%= league_week_col_detail_html(week.quarter, team, week.quarter_scores, td_style) %>
+    </tr>
+    <tr style="<%= tr_large + tr_style %>">
+      <%= league_week_col_detail_html(week.half, team, week.half_scores, td_style) %>
+    </tr>
+    <tr style="<%= tr_large + tr_style %>">
+      <%= league_week_col_detail_html(week.season, team, week.season_scores, td_style) %>
+    </tr>
+<% end %>

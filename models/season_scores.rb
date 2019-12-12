@@ -1,0 +1,2 @@
+class SeasonScores < AbstractScores
+end

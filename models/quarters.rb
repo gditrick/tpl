@@ -1,0 +1,2 @@
+class Quarters < AbstractPeriodics
+end

@@ -1,0 +1,41 @@
+<% if week.is_start_of_half? and not week.is_start_of_season? %>
+This is the start of <%= week.half.description %> and you can try for:
+
+Highest Score in this Half and win <%=h prize_definition.prize(HalfHighestScorePrize).amount_to_s %><br/><br/>
+
+Highest Weekly Score n this Half and win  <%=h prize_definition.prize(HalfHighestWeeklyScorePrize).amount_to_s %>
+
+<% else %>
+<% unless previous_week.nil? %>
+
+Your status in <%= week.half.description %>:
+
+<% if previous_week.half_scores.find_by_team(team).previous_score.nil? %>
+
+Your team is in first place for <%= week.half.description %>.  You are <%= previous_week.half_scores.find_by_team(team).next_score.points_behind_pre %> ahead of <%= previous_week.half_scores.find_by_team(team).next_score.team.name_and_owner %>.
+
+Stay in first, don't forget to set a lineup!
+
+<% elsif previous_week.half_scores.find_by_team(team).next_score.nil? %>
+
+Ouch, your team is in last place.  You are <%= previous_week.half_scores.find_by_team(team).points_behind_pre %> behind <%= previous_week.half_scores.find_by_team(team).previous_score.team.name_and_owner %>.
+
+
+Get out of the cellar and catch <%= previous_week.half_scores.find_by_team(team).previous_score.team.name_and_owner %>.  Don't forget to set a lineup!
+
+<% else %>
+
+You are in <%= (previous_week.half_scores.index(previous_week.half_scores.find_by_team(team)) + 1).en.ordinal %> place.
+
+You are <%= previous_week.half_scores.find_by_team(team).points_behind_1st %> behind first.
+
+Your team is <%= previous_week.half_scores.find_by_team(team).points_behind_pre %> behind <%= previous_week.half_scores.find_by_team(team).previous_score.team.name_and_owner %>.
+
+Your team is also <%= previous_week.half_scores.find_by_team(team).next_score.points_behind_pre %> ahead of <%= previous_week.half_scores.find_by_team(team).next_score.team.name_and_owner %>.
+
+
+You are better than those 2!  Don't forget to set a lineup!
+
+<% end %>
+<% end %>
+<% end %>

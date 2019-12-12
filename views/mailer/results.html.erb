@@ -1,0 +1,223 @@
+<p>
+Hi <%= @team.owner_first_name %>,
+</p>
+<p>
+Your team came in <%= (@week.scores.index(@score) + 1).en.ordinal %> place this week with a score of <%= @score.total %>
+</p>
+<h2> Here are the results from <%= @week.description %>: </h2>
+</p>
+<p>
+Weekly winner of <%= @prize_definition.prize(WeekHighestScorePrize).amount_to_s %> was <%= @week.scores[0].team.name_and_owner %> at <%= @week.scores[0].total %>
+</p>
+<div style="<%= div_table_default %>">
+  <div style="<%= div_table_caption_default %>">
+    <p><%= @week.description %> Summary</p>
+  </div>
+  <div style="<%= div_table_row_default %>">
+    <div style="<%= div_table_cell_default %>">
+      <p>
+        <%= render :partial => "scores.html",
+                   :locals => {
+                     :caption => "#{@week.description} rundown",
+                     :average => @week.scores.average,
+                     :scores => @week.scores,
+                     :week => @week,
+                     :team => @team
+                   }
+        %>
+      </p>
+    </div>
+    <div style="<%= div_table_cell_default %>">
+      <p>
+        <%= render :partial => "top_player_scores.html",
+                   :locals => {
+                       :caption => "Highest #{@week.description} Lineup",
+                       :total_points => @week.top_player_scores_total,
+                       :top_player_scores => @week.top_player_scores
+                   }
+        %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<% unless @season.quarters.nil? or @season.quarters.empty? %>
+
+<br/>
+<br/>
+
+<h3><%= @week.quarter.description %></h3>
+<% if @week.is_end_of_quarter? %>
+<p>
+<%= @week.quarter.description %> winner of <%= @prize_definition.prize(QuarterHighestScorePrize).amount_to_s %> was <%= @week.quarter_scores[0].team.name_and_owner %> at <%= @week.quarter_scores[0].total %> <br/>
+Highest weekly of the <%= @week.quarter.description %> and winner of <%= @prize_definition.prize(QuarterHighestWeeklyScorePrize).amount_to_s %> was <%= @week.quarter.highest_weekly.team.name_and_owner %> at <%= @week.quarter.highest_weekly.total %>
+</p>
+<% end %>
+<div style="<%= div_table_default %>">
+  <div style="<%= div_table_caption_default %>">
+    <p><%= @week.quarter.description %> Summary</p>
+  </div>
+  <div style="<%= div_table_row_default %>">
+   <div style="<%= div_table_cell_default %>">
+     <p>
+       <%= render :partial => "scores.html",
+                  :locals => {
+                      :caption => "#{@week.quarter.description} rundown",
+                      :scores => @week.quarter_scores,
+                      :average => @week.quarter_scores.average,
+                      :week => @week,
+                      :team => @team
+       } %>
+     </p>
+   </div>
+      <div style="<%= div_table_cell_default %>">
+     <p>
+       <%= render :partial => "top_player_scores.html",
+                  :locals => {
+                      :caption => "#{@week.quarter.description} Highest Week Lineup",
+                      :total_points => @week.quarter_top_player_scores_total,
+                      :top_player_scores => @week.quarter_top_player_scores
+                  } %>
+     </p>
+   </div>
+ </div>
+</div>
+<p>
+<table style="<%= table_default %>">
+<caption style="<%= caption_default %>">Top Weekly</caption>
+<tr style="<%= tr_default %>">
+  <th style="<%= th_default %>">Score</th>
+  <th style="<%= th_default %>">Team(Owner)</th>
+  <th style="<%= th_default %>">Week</th>
+</tr>
+<%= render :partial => "weekly_high.html",
+  :collection => @week.quarter.top_weekly_scores(@week),
+  :locals => {
+    :period => @week.quarter,
+    :team => @team
+  } %>
+</table>
+</p>
+
+<% end %>
+<% unless @season.halves.nil? or @season.halves.empty? %>
+
+<br/>
+<br/>
+
+<h3><%= @week.half.description %></h3>
+<% if @week.is_end_of_half? %>
+<p>
+<%= @week.half.description %> winner of <%= @prize_definition.prize(HalfHighestScorePrize).amount_to_s %> was <%= @week.half_scores[0].team.name_and_owner %> at <%= @week.half_scores[0].total %> <br/>
+Highest weekly of the <%= @week.half.description %> and winner of <%= @prize_definition.prize(HalfHighestWeeklyScorePrize).amount_to_s %> was <%= @week.half.highest_weekly.team.name_and_owner %> at <%= @week.half.highest_weekly.total %>
+</p>
+<% end %>
+<div style="<%= div_table_default %>">
+  <div style="<%= div_table_caption_default %>">
+    <p><%= @week.half.description %> Summary</p>
+  </div>
+  <div style="<%= div_table_row_default %>">
+    <div style="<%= div_table_cell_default %>">
+      <p>
+        <%= render :partial => "scores.html",
+                   :locals => {
+                       :caption => "#{@week.half.description} rundown",
+                       :scores => @week.half_scores,
+                       :average => @week.half_scores.average,
+                       :week => @week,
+                       :team => @team
+                    } %>
+      </p>
+    </div>
+    <div style="<%= div_table_cell_default %>">
+      <p>
+        <%= render :partial => "top_player_scores.html",
+                   :locals => {
+                       :caption => "#{@week.half.description} Highest Week Lineup",
+                       :total_points => @week.half_top_player_scores_total,
+                       :top_player_scores => @week.half_top_player_scores
+                   } %>
+      </p>
+    </div>
+  </div>
+</div>
+<p>
+<table style="<%= table_default %>">
+<caption style="<%= caption_default %>">Top Weekly</caption>
+<tr style="<%= tr_default %>">
+  <th style="<%= th_default %>">Score</th>
+  <th style="<%= th_default %>">Team(Owner)</th>
+  <th style="<%= th_default %>">Week</th>
+</tr>
+<%= render :partial => "weekly_high.html",
+           :collection => @week.half.top_weekly_scores(@week),
+           :locals => { :period => @week.half,
+                        :team => @team } %>
+</table>
+</p>
+<% end %>
+
+<br/>
+<br/>
+
+<h3><%= @week.season.description %></h3>
+<% if @week.is_end_of_season? %>
+<p>
+<%= @week.season.description %> winner of <%= @prize_definition.prize(SeasonHighestScorePrize).amount_to_s %> was <%= @week.season_scores[0].team.name_and_owner %> at <%= @week.season_scores[0].total %> <br/>
+Highest weekly of the <%= @week.season.description %> and winner of <%= @prize_definition.prize(SeasonHighestWeeklyScorePrize).amount_to_s  %> was <%= @week.season.highest_weekly.team.name_and_owner %> at <%= @week.season.highest_weekly.total %>
+</p>
+<% end %>
+<div style="<%= div_table_default %>">
+  <div style="<%= div_table_caption_default %>">
+    <p><%= @week.season.description %> Summary</p>
+  </div>
+  <div style="<%= div_table_row_default %>">
+    <div style="<%= div_table_cell_default %>">
+      <p>
+        <%= render :partial => "scores.html",
+                   :locals => {
+                       :caption => "#{@week.season.description} rundown",
+                       :scores => @week.season_scores,
+                       :average => @week.season_scores.average,
+                       :week => @week,
+                       :team => @team
+                   } %>
+      </p>
+    </div>
+    <div style="<%= div_table_cell_default %>">
+      <p>
+        <%= render :partial => "top_player_scores.html",
+                   :locals => {
+                       :caption => "#{@week.season.description} Highest Week Lineup",
+                       :total_points => @week.season_top_player_scores_total,
+                       :top_player_scores => @week.season_top_player_scores
+                   } %>
+      </p>
+    </div>
+  </div>
+</div>
+<p>
+</p>
+<br/>
+<p>
+<table style="<%= table_default %>">
+<caption style="<%= caption_default %>">Top Weekly</caption>
+<tr style="<%= tr_default %>">
+  <th style="<%= th_default %>">Score</th>
+  <th style="<%= th_default %>">Team(Owner)</th>
+  <th style="<%= th_default %>">Week</th>
+</tr>
+<%= render :partial => "weekly_high.html",
+  :collection => @week.season.top_weekly_scores(@week),
+  :locals => {
+    :period => @week.season,
+    :team => @team
+  } %>
+</table>
+</p>
+<p>
+Later,
+</p>
+<p>
+The Commish
+</p>

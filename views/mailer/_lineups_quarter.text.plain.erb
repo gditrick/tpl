@@ -1,0 +1,39 @@
+<% if week.is_start_of_quarter? and not week.is_start_of_season? %>
+
+This is the start of <%= week.quarter.description %> and you can try for:
+
+Highest Total Score in this Quarter and win <%=h prize_definition.prize(QuarterHighestScorePrize).amount_to_s %><br/><br/>
+
+Highest Weekly Score in this Quarter and win <%=h prize_definition.prize(QuarterHighestWeeklyScorePrize).amount_to_s %>
+
+<% else %>
+<% unless previous_week.nil? %>
+
+Your status in <%= week.quarter.description %>:
+
+<% if previous_week.quarter_scores.find_by_team(team).previous_score.nil? %>
+
+Your team is in first place for <%= week.quarter.description %>.  You are <%= previous_week.quarter_scores.find_by_team(team).next_score.points_behind_pre %> ahead of <%= previous_week.quarter_scores.find_by_team(team).next_score.team.name_and_owner %>.
+
+Stay in first, don't forget to set a lineup!
+
+<% elsif previous_week.quarter_scores.find_by_team(team).next_score.nil? %>
+
+Ouch, your team is in last place.  You are <%= previous_week.quarter_scores.find_by_team(team).points_behind_pre %> behind <%= previous_week.quarter_scores.find_by_team(team).previous_score.team.name_and_owner %>.
+
+Get out of the cellar and catch <%= previous_week.quarter_scores.find_by_team(team).previous_score.team.name_and_owner %>.  Don't forget to set a lineup!
+
+<% else %>
+
+You are in <%= (previous_week.quarter_scores.index(previous_week.quarter_scores.find_by_team(team)) + 1).en.ordinal %> place.
+
+You are <%= previous_week.quarter_scores.find_by_team(team).points_behind_1st %> behind first.
+
+Your team is <%= previous_week.quarter_scores.find_by_team(team).points_behind_pre %> behind <%= previous_week.quarter_scores.find_by_team(team).previous_score.team.name_and_owner %>.
+
+Your team is also <%= previous_week.quarter_scores.find_by_team(team).next_score.points_behind_pre %> ahead of <%= previous_week.quarter_scores.find_by_team(team).next_score.team.name_and_owner %>.
+
+You are better than those 2!  Don't forget to set a lineup!
+<% end %>
+<% end %>
+<% end %>

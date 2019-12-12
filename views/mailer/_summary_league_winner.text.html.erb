@@ -1,0 +1,12 @@
+<% tr_style = tr_default %>
+<% td_style = td_default %>
+<% if winning.team == team %>
+  <% tr_style += tr_team %>
+  <% td_style += td_team %>
+<% end %>
+<tr style="<%= tr_style %>">
+  <td style="<%= td_style %>"><%=h winning.prize.class.name.titleize.split.slice(1..-2).join(' ') %></td>
+  <td style="<%= td_style %>"><%=h winning.period.description %></td>
+  <td style="<%= td_style %>"><%=h winning.team.name_and_owner %></td>
+  <td style="<%= td_style %>"><%=h winning.prize.amount_to_s %></td>
+</tr>

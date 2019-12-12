@@ -1,0 +1,11 @@
+Average Score: <%= average %> 
+<%= header_line1_plain(week, scores) %>
+<%= header_line2_plain(week, scores) %>
+<%= header_line3_plain(week, scores) %>
+<%= header_line4_plain(week, scores) %>
+<%= render :partial => "score.text",
+           :collection => scores,
+           :locals => { :team => team,
+                        :week => week,
+                        :scores => scores } %>
+<%= footer_line1_plain(week, scores) %>

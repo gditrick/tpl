@@ -1,0 +1,2 @@
+class Halves < AbstractPeriodics
+end

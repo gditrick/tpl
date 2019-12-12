@@ -1,0 +1,22 @@
+<tr style="<%= tr_default %>">
+  <td style="<%= td_default %>"><%=h winning.prize.class.name.titleize.split.slice(1..-2).join(' ') %></td>
+  <td style="<%= td_default %>"><%=h winning.period.description %></td>
+
+  <% if winning.prize.is_money? %>
+    <td style="<%= td_default %>"><%=h winning.prize.amount_to_s %></td>
+  <% else %>
+    <td style="<%= td_default %>">N/A</td>
+  <% end %>
+
+  <td style="<%= td_default + td_number %>"><%=h winning.score.total %></td>
+
+  <% if winning.prize.class.name.include?("HighestWeekly") %>
+    <td style="<%= td_default + td_number %>"><%=h sprintf("%1.3f", winning.period.weekly_scores.average) %></td>
+    <td style="<%= td_default + td_number %>"><%=h winning.period.weekly_scores.first.total %></td>
+    <td style="<%= td_default + td_number %>"><%=h winning.period.weekly_scores.lowest.total %></td>
+  <% else %>
+    <td style="<%= td_default + td_number %>"><%=h sprintf("%1.3f", winning.period.scores.average) %></td>
+    <td style="<%= td_default + td_number %>"><%=h winning.period.scores.first.total %></td>
+    <td style="<%= td_default + td_number %>"><%=h winning.period.scores.lowest.total %></td>
+  <% end %>
+</tr>

@@ -1,0 +1,2 @@
+class QuarterHighestWeeklyScorePrize < AbstractPrize
+end

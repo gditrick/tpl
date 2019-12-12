@@ -1,0 +1,2 @@
+class CombinedPrize < AbstractPrize
+end

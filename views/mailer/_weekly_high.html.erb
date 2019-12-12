@@ -1,0 +1,15 @@
+<% if weekly_high.team == team %>
+  <% tr_style = tr_team %>
+  <% td_style = td_team %>
+<% elsif weekly_high_counter % 2 == 0 %>
+  <% tr_style = tr_even %>
+  <% td_style = td_even %>
+<% else %>
+  <% tr_style = tr_odd %>
+  <% td_style = td_odd %>
+<% end %>
+<tr style="<%= tr_default + tr_style %>" >
+  <td style="<%= tr_default + td_style + td_number %>"><%=h weekly_high.total %></td>
+  <td style="<%= tr_default + td_style %>"><%=h weekly_high.team.name_and_owner %></td>
+  <td style="<%= tr_default + td_style %>"><%=h period.week_of_score(weekly_high).description %></td>
+</tr>

@@ -1,0 +1,43 @@
+<p>
+Hi <%=h @team.owner_first_name %>,
+</p>
+<p>
+Your team came in <%=h (@week.scores.index(@score) + 1).en.ordinal %> place this week with a score of <%=h @score.total %>
+</p>
+<p>
+<h2> Here are the results from <%=h @week.description %>: </h2>
+</p>
+<p>
+<%= render :partial => "scores.text.html",
+  :locals => {
+    :caption => "#{@week.description} rundown",
+    :scores => @week.scores,
+    :average => @week.scores.average,
+    :week => @week,
+    :team => @team
+  } %>
+</p>
+<br/>
+<br/>
+<h3><%=h @week.season.description %></h3>
+<% if @week.is_end_of_season? %>
+<p>
+<%=h @week.season.description %> winner of <%=h @prize_definition.prize(SeasonHighestScorePrize).amount_to_s %> was <%=h @week.season_scores[0].team.name_and_owner %> at <%=h @week.season_scores[0].total %> <br/>
+</p>
+<% end %>
+<p>
+<%= render :partial => "scores.text.html",
+  :locals => {
+    :caption => "#{@week.season.description} rundown",
+    :scores => @week.season_scores,
+    :average => @week.season_scores.average,
+    :week => @week,
+    :team => @team
+  } %>
+</p>
+<p>
+Later,
+</p>
+<p>
+The Commish
+</p>

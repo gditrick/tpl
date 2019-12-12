@@ -1,0 +1,78 @@
+Hi <%= @team.owner_first_name %>,
+
+dd
+<% if @winning.team.owner.eql?(@winning.team.name) %>
+Your team won <%=h @winning.prize.class.name.titleize.split.slice(1..-2).join(' ') %> for <%=h @winning.period.description %> with a score of <%=h sprintf("%1.2f", @winning.score.total) %>.
+<% else %>
+Your team, <%=h @winning.team.name %>, won <%=h @winning.prize.class.name.titleize.split.slice(1..-2).join(' ') %> for <%=h @winning.period.description %> with a score of <%=h sprintf("%1.2f", @winning.score.total) %>.
+<% end %>
+This is your team, Your team came in <%= (@week.scores.index(@score) + 1).en.ordinal %> place this week.
+
+Here are the results from <%= @week.description %>:
+
+Weekly winner of <%= @prize_definition.prize(WeekHighestScorePrize).amount_to_s %> was <%= @week.scores[0].team.name_and_owner %> at <%= @week.scores[0].total %>
+
+<%= @week.description %> rundown:
+<%= render :partial => "scores.text.plain",
+           :locals => { :scores => @week.scores,
+                        :average => @week.scores.average,
+                        :week => @week,
+                        :team => @team } %>
+
+
+<% if @week.is_end_of_quarter? %>
+<%= @week.quarter.description %> winner of <%= @prize_definition.prize(QuarterHighestScorePrize).amount_to_s %> was <%= @week.quarter_scores[0].team.name_and_owner %> at <%= @week.quarter_scores[0].total %>
+
+Highest weekly of the <%= @week.quarter.description %> and winner of <%= @prize_definition.prize(QuarterHighestWeeklyScorePrize).amount_to_s %> was <%= @week.quarter.highest_weekly.team.name_and_owner %> at <%= @week.quarter.highest_weekly.total %>
+
+<% end %>
+<%= @week.quarter.description %> rundown:
+<%= render :partial => "scores.text.plain",
+           :locals => { :scores => @week.quarter_scores,
+                        :average => @week.quarter_scores.average,
+                        :week => @week,
+                        :team => @team } %>
+Top Weekly
+----------
+<%= render :partial => "weekly_high.text.plain", :collection => @week.quarter.top_weekly_scores(@week), :locals => { :period => @week.quarter} %>
+
+
+
+<% if @week.is_end_of_half? %>
+<%= @week.half.description %> winner of <%= @prize_definition.prize(HalfHighestScorePrize).amount_to_s %> was <%= @week.half_scores[0].team.name_and_owner %> at <%= @week.half_scores[0].total %>
+
+Highest weekly of the <%= @week.half.description %> and winner of <%= @prize_definition.prize(HalfHighestWeeklyScorePrize).amount_to_s %> was <%= @week.half.highest_weekly.team.name_and_owner %> at <%= @week.half.highest_weekly.total %>
+
+<% end %>
+<%= @week.half.description %> rundown:
+<%= render :partial => "scores.text.plain",
+           :locals => { :scores => @week.half_scores,
+                        :average => @week.half_scores.average,
+                        :week => @week,
+                        :team => @team } %>
+Top Weekly
+----------
+<%= render :partial => "weekly_high.text.plain", :collection => @week.half.top_weekly_scores(@week), :locals => { :period => @week.half} %>
+
+
+<% if @week.is_end_of_season? %>
+<%= @week.season.description %> winner of <%= @prize_definition.prize(SeasonHighestScorePrize).amount_to_s %> was <%= @week.season_scores[0].team.name_and_owner %> at <%= @week.season_scores[0].total %>
+
+Highest weekly of the <%= @week.season.description %> and winner of <%= @prize_definition.prize(SeasonHighestWeeklyScorePrize).amount_to_s  %> was <%= @week.season.highest_weekly.team.name_and_owner %> at <%= @week.season.highest_weekly.total %>
+<% end %>
+
+<%= @week.season.description %> rundown:
+<%= render :partial => "scores.text.plain",
+           :locals => { :scores => @week.season_scores,
+                        :average => @week.season_scores.average,
+                        :week => @week,
+                        :team => @team } %>
+Top Weekly
+----------
+<%= render :partial => "weekly_high.text.plain", :collection => @week.season.top_weekly_scores(@week), :locals => { :period => @week.season} %>
+
+
+
+Later,
+
+The Commish

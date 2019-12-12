@@ -1,0 +1,2 @@
+class Scores < AbstractScores
+end

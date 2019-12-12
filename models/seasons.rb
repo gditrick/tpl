@@ -1,0 +1,2 @@
+class Seasons < AbstractPeriodics
+end

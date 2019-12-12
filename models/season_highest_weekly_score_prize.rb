@@ -1,0 +1,2 @@
+class SeasonHighestWeeklyScorePrize < AbstractPrize
+end

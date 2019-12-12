@@ -1,0 +1,17 @@
+<% unless score.total == 0 %>
+<% if summary_team_season_score_counter % 2 == 0 %>
+  <% tr_style = tr_even %>
+  <% td_style = td_even %>
+<% else %>
+  <% tr_style = tr_odd %>
+  <% td_style = td_odd %>
+<% end %>
+<tr style="<%= tr_default + tr_style %>">
+  <td style="<%= td_default + td_style %>"><%=h score.period.description %></td>
+  <td style="<%= td_default + td_style + td_number %>"><%=h score.total %></td>
+  <%= score_ranking_col_detail_html(score, team, td_style) %>
+  <td style="<%= td_default + td_style + td_number %>"><%=h score.period.scores.average %></td>
+  <td style="<%= td_default + td_style + td_number %>"><%=h score.period.scores.first.total %></td>
+  <td style="<%= td_default + td_style + td_number %>"><%=h score.period.scores.lowest.total %></td>
+</tr>
+<% end %>

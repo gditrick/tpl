@@ -1,0 +1,21 @@
+<h2>Team Summary</h2>
+<p>
+<%= render :partial => "summary_team_season_scores.text.html",
+  :locals => { :team => team,
+               :periodics => season.weeks } %>
+</p>
+<p>
+<%= render :partial => "summary_team_season_scores.text.html",
+  :locals => { :team => team,
+               :periodics => season.quarters } %>
+</p>
+<p>
+<%= render :partial => "summary_team_season_scores.text.html",
+  :locals => { :team => team,
+               :periodics => season.halves } %>
+</p>
+<p>
+<%= render :partial => "summary_team_progression.text.html",
+  :locals => { :team => team,
+               :season => season } %>
+</p>

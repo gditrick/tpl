@@ -1,0 +1,22 @@
+--- 
+action_mailer:
+  perform_deliveries: true
+  delivery_method: sendmail
+#  delivery_method: test
+  sendmail_settings:
+    location: /usr/sbin/sendmail
+    arguments: -i -t
+
+#  delivery_method: sendmail
+#  sendmail_settings:
+#    location: /usr/sbin/sendmail
+
+#  perform_deliveries: true
+#  delivery_method: test
+
+#  perform_deliveries: true
+#  smtp_settings:
+#    address: smtp.fuse.net
+#    authentication: [login, plain, cram_md]
+#    user_name:
+#    password:

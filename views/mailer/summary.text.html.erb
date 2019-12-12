@@ -1,0 +1,35 @@
+<p>
+Hi <%=h @team.owner_first_name %>,
+</p>
+<% if @season.is_regular_season? %>
+<p>
+<h2>Remember:  There is a NFL Playoff version to play.</h2>
+<h3>
+  <a href="http://www.fantasyleaguepro.com/playoffs/golongplayof/index.php">Goto Site and Sign-up Now!</a>
+</h3>
+</p>
+<% end %>
+<%= render :partial => "summary_team_winnings.text.html",
+           :locals => { :team => @team,
+                        :winnings => @winnings } %>
+<%= render :partial => "summary_team.text.html",
+           :locals => { :team => @team,
+                        :season => @season } %>
+<%= render :partial => "summary_league.text.html",
+           :locals => { :team => @team,
+                        :winnings => @winnings,
+                        :season => @season } %>
+<p>
+I sincerely hope that you had fun playing this <%= @season.description %>.  Congratulation to all the winners.
+And, to the unfortunate, I wish you better luck next year. 
+</p>
+<p>
+Thanks for playing and looking forward to the same next year!
+</p>
+<p>
+Later,
+</p>
+<p>
+The Commish</br>
+Greg
+</p>

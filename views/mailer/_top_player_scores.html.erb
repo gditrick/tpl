@@ -1,0 +1,10 @@
+<table style="<%= table_default %>">
+  <caption style="<%= caption_default %>">Highest Possible Week Lineup (Total - <%= total_points.to_f.round(2) %>)</caption>
+<tr>
+  <th style="<%= th_default %>">Postion</th>
+  <th style="<%= th_default %>">Team</th>
+  <th style="<%= th_default %>">Player Name</th>
+  <th style="<%= th_default %>">Score</th>
+</tr>
+<%= render :partial => "top_player_score.html", :collection => top_player_scores %>
+</table>

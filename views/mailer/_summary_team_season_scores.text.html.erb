@@ -1,0 +1,9 @@
+<table style="<%= table_default %>">
+  <caption style="<%= caption_default %>"><%=h periodics.class.name.singularize %> Score Rankings</caption>
+<%= score_ranking_hdr_row1_html(periodics) %>
+<%= score_ranking_hdr_row2_html(periodics) %>
+<%= render :partial => "summary_team_season_score.text.html",
+  :collection => periodics.scores_by_team(team),
+  :as => :score,
+  :locals => { :team => team } %>
+</table>

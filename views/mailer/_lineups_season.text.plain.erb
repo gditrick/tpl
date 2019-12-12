@@ -1,0 +1,44 @@
+<% if week.is_start_of_season? %>
+
+This is the start of <%= week.season.description %> and you can try for:
+
+
+<%= render :partial => "prize.text.plain", :collection => prize_definition.prizes %>
+
+
+These will increase if we get more participants!
+
+<% else %>
+<% unless previous_week.nil? %>
+
+Your status in <%= week.season.description %>:
+
+<% if previous_week.season_scores.find_by_team(team).previous_score.nil? %>
+
+Your team is in first place for <%= week.season.description %>.  You are <%= previous_week.season_scores.find_by_team(team).next_score.points_behind_pre %> ahead of <%= previous_week.season_scores.find_by_team(team).next_score.team.name_and_owner %>.
+
+
+Stay in first, don't forget to set a lineup!
+
+<% elsif previous_week.season_scores.find_by_team(team).next_score.nil? %>
+
+Ouch, your team is in last place.  You are <%= previous_week.season_scores.find_by_team(team).points_behind_pre %> behind <%= previous_week.season_scores.find_by_team(team).previous_score.team.name_and_owner %>.
+
+Get out of the cellar and catch <%= previous_week.season_scores.find_by_team(team).previous_score.team.name_and_owner %>.  Don't forget to set a lineup!
+
+<% else %>
+
+You are in <%= (previous_week.season_scores.index(previous_week.season_scores.find_by_team(team)) + 1).en.ordinal %> place.
+
+You are <%= previous_week.season_scores.find_by_team(team).points_behind_1st %> behind first.
+
+Your team is <%= previous_week.season_scores.find_by_team(team).points_behind_pre %> behind <%= previous_week.season_scores.find_by_team(team).previous_score.team.name_and_owner %>.
+
+Your team is also <%= previous_week.season_scores.find_by_team(team).next_score.points_behind_pre %> ahead of <%= previous_week.season_scores.find_by_team(team).next_score.team.name_and_owner %>.
+
+
+You are better than those 2!  Don't forget to set a lineup!
+
+<% end %>
+<% end %>
+<% end %>

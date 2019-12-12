@@ -1,0 +1,29 @@
+<% unless week.scores.nil? or week.scores.empty? %>
+  <% unless week.scores.find_by_team(team).total == 0.0 %>
+    <% if week.quarter.pos % 2 == 0 %>
+      <% tr_style    = tr_grouping_even %>
+      <% td_style    = td_grouping_even %>
+      <% tbody_style = tbody_grouping_even %>
+    <% else %>
+      <% tr_style    = tr_grouping_odd %>
+      <% td_style    = td_grouping_odd %>
+      <% tbody_style = tbody_grouping_odd %>
+    <% end %>
+    <% if week.is_start_of_a_period? %>
+      <% if week.is_start_of_quarter? %>
+        <tbody style="<%= tbody_grouping + tbody_style %>">
+      <% end %>
+    <% end %>
+    <tr style="<%= tr_grouping + tr_style %>">
+      <td style="<%= td_grouping + td_style %>"><%=h week.description %></td>
+      <td style="<%= td_grouping + td_style + td_number %>"><%=h week.scores.find_by_team(team).total %></td>
+      <%= progression_col_detail_html(week, team, td_style) %>
+      <td style="<%= td_grouping + td_style + td_number %>"><%=h week.scores.average %></td>
+      <td style="<%= td_grouping + td_style + td_number %>"><%=h week.scores.first.total %></td>
+      <td style="<%= td_grouping + td_style + td_number %>"><%=h week.scores.lowest.total %></td>
+    </tr>
+    <% if week.is_end_of_a_period? %>
+      </tbody>
+    <% end %>
+  <% end %>
+<% end %>

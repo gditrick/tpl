@@ -1,0 +1,36 @@
+<% if team.winnings_count > 0 %>
+<h2>
+Congrats on your winnings:
+</h2>
+<% if team.winnings_amount > 0.0 %>
+<h4>
+  Your total amount of your winnings owed to you is <%= sprintf("$%1.2f", team.winnings_amount) %>.
+</h4>
+<% end %>
+<table style="<%= table_default %>">
+  <caption style="<%= caption_default %>">Winnings</caption>
+<thead>
+  <tr style="<%= tr_default %>">
+    <th style="<%= th_default %>">Prize</th>
+    <th style="<%= th_default %>">Period</th>
+    <th style="<%= th_default %>">Amount</th>
+    <th style="<%= th_default %>">Score</th>
+    <th style="<%= th_default %>">Average</th>
+    <th style="<%= th_default %>">Highest</th>
+    <th style="<%= th_default %>">Lowest</th>
+  </tr>
+</thead>
+<tbody>
+<%= render :partial => "summary_team_winning.text.html",
+  :collection => winnings.find_by_team(team),
+  :as => :winning,
+  :locals => { :team => team } %>
+</tbody>
+<tfoot>
+  <tr style="<%= tr_default %>">
+    <th colspan="2" style="<%= th_default + th_total %>">Total:</th>
+    <th colspan="5" style="<%= th_default + th_totalamount %>" ><%= sprintf("$%1.2f", team.winnings_amount) %></th>
+  </tr>
+</tfoot>
+</table>
+<% end %>

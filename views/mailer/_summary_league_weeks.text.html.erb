@@ -1,0 +1,23 @@
+<table style="<%= table_large %>">
+<caption style="<%= caption_large %>">League's Weekly Snapshot</caption>
+<tr style="<%= tr_large %>">
+  <th style="<%= th_large %>" rowspan="3">Num</th>
+  <th style="<%= th_large %>" colspan="6">Snapshot</th>
+</tr>
+<tr style="<%= tr_large %>">
+  <th style="<%= th_large %>" rowspan="2">Period</th>
+  <th style="<%= th_large %>" rowspan="2">Average</th>
+  <th style="<%= th_large %>" colspan="2">Highest</th>
+  <th style="<%= th_large %>" colspan="2">Lowest</th>
+</tr>
+<tr style="<%= tr_large %>">
+  <th style="<%= th_large %>">Team</th>
+  <th style="<%= th_large %>">Score</th>
+  <th style="<%= th_large %>">Team</th>
+  <th style="<%= th_large %>">Score</th>
+</tr>
+<%= render :partial => "summary_league_week.text.html",
+  :collection => weeks,
+  :as => :week,
+  :locals => { :team => team } %>
+</table>

@@ -1,0 +1,2 @@
+class WeekHighestScorePrize < AbstractPrize
+end

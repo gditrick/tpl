@@ -1,0 +1,24 @@
+<table style="<%= table_default %>">
+  <caption style="<%= caption_default %>"><%= caption %> (Average - <%= average %>)</caption>
+<tr>
+  <th style="<%= th_default %>" rowspan="2">Place</th>
+  <th style="<%= th_default %>" rowspan="2">Team</th>
+  <%= change_col_header_html(week, scores) %>
+  <th style="<%= th_default %>" rowspan="2">Score</th>
+  <th style="<%= th_default %>" colspan="5">Points Behind</th>
+</tr>
+<tr>
+  <th style="<%= th_default %>" >Previous Team</th>
+  <th style="<%= th_default %>" ><%= 1.en.ordinal %></th>
+  <th style="<%= th_default %>" ><%= 2.en.ordinal %></th>
+  <th style="<%= th_default %>" ><%= 3.en.ordinal %></th>
+  <th style="<%= th_default %>" ><%= 4.en.ordinal %></th>
+</tr>
+<%= render :partial => "score.html",
+  :collection => scores,
+  :locals => {
+    :team => team,
+    :week => week,
+    :scores => scores
+  } %>
+</table>
