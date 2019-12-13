@@ -21,7 +21,6 @@ Dependencies:
     actionmailer >= 2.3.4
     actionpack >= 2.3.4
     activesupport >= 2.3.4
-    rack >= 1.0.0
 
 Files:
   ./addr.rb                - Ruby Application that will add a weeks results to
