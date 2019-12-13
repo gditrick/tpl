@@ -6,7 +6,7 @@ Fantasy Footbal Email Application.
 
 Description:
   Applications to handle managing a player survival league.  The web site,
-  www.fanstarpro.com, does not provide the ability to break results into
+  www.fanstar.com, does not provide the ability to break results into
   periods like quarters or halves.  I needed the ability to grab the results
   of each week and calculate and capture the results for such periods.
   Then email this to the participants.  I decided to use the ruby language
